@@ -1,0 +1,31 @@
+{
+  "name": "ts-testdrive",
+  "version": "1.0.0",
+  "description": "Pet project for learn JS core",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Smynay/ts-testdrive.git"
+  },
+  "keywords": [
+    "TypeScript",
+    "Webpack",
+    "Jest",
+    "Eslint"
+  ],
+  "author": "Nikita Schastny <smynay@yandex.ru>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Smynay/ts-testdrive/issues"
+  },
+  "homepage": "https://github.com/Smynay/ts-testdrive#readme",
+  "devDependencies": {
+    "@types/node": "^16.11.11",
+    "@types/webpack": "^5.28.0",
+    "@types/webpack-dev-server": "^4.5.0",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.2"
+  }
+}

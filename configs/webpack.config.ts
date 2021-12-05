@@ -45,6 +45,25 @@ export default {
                     'css-loader',
                     'sass-loader'
                 ]
+            },
+            {
+                test: /\.(ts|js)$/,
+                exclude: resolve(__dirname, '../node_modules'),
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: [
+                            '@babel/preset-env',
+                            '@babel/preset-typescript',
+                            {
+                                plugins: [
+                                    '@babel/plugin-proposal-class-properties',
+                                    '@babel/plugin-transform-runtime'
+                                ]
+                            }
+                        ]
+                    }
+                }
             }
         ]
     }

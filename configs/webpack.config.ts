@@ -12,6 +12,13 @@ export default {
         filename: 'bundle.[fullhash].js',
         path: resolve(__dirname, '../dist')
     },
+    resolve: {
+        extensions: ['.ts', '.js'],
+        alias: {
+            '@': resolve(__dirname, '../src'),
+            '@core': resolve(__dirname, '../src/core'),
+        }
+    },
     plugins: [
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({

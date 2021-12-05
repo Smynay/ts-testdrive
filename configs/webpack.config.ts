@@ -4,12 +4,17 @@ import CopyPlugin from 'copy-webpack-plugin';
 import {CleanWebpackPlugin} from 'clean-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
+const isProd: boolean = process.env.NODE_ENV === 'production';
+const isDev: boolean = !isProd;
+
+const filename = (ext: string): string => isDev ? `bundle.${ext}` : `bundle.[fullhash].${ext}`;
+
 export default {
     context: resolve(__dirname, '../src'),
     mode: 'development',
     entry: './index.ts',
     output: {
-        filename: 'bundle.[fullhash].js',
+        filename: filename('js'),
         path: resolve(__dirname, '../dist')
     },
     resolve: {
@@ -19,10 +24,15 @@ export default {
             '@core': resolve(__dirname, '../src/core'),
         }
     },
+    devtool: isDev ? 'source-map' : false,
     plugins: [
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
-            template: '../public/index.html'
+            template: '../public/index.html',
+            minify: {
+                removeComments: isProd,
+                collapseWhitespace: isProd
+            }
         }),
         new CopyPlugin({
             patterns: [
@@ -33,7 +43,7 @@ export default {
             ]
         }),
         new MiniCssExtractPlugin({
-            filename: 'bundle.[fullhash].css'
+            filename: filename('css')
         })
     ],
     module: {

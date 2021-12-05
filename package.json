@@ -4,8 +4,8 @@
   "description": "Pet project for learn JS core",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "cross-env TS_NODE_PROJECT=\\\"configs/tsconfig.json\\\" webpack --watch --config configs/webpack.config.ts",
-    "build": "cross-env TS_NODE_PROJECT=\\\"configs/tsconfig.json\\\" webpack --config configs/webpack.config.ts --mode production"
+    "start": "cross-env NODE_ENV=development TS_NODE_PROJECT=\\\"configs/tsconfig.json\\\" webpack --watch --config configs/webpack.config.ts",
+    "build": "cross-env NODE_ENV=production TS_NODE_PROJECT=\\\"configs/tsconfig.json\\\" webpack --config configs/webpack.config.ts --mode production"
   },
   "repository": {
     "type": "git",

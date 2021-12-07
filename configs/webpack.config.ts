@@ -3,13 +3,40 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
 import {CleanWebpackPlugin} from 'clean-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import webpack from 'webpack';
 
 const isProd: boolean = process.env.NODE_ENV === 'production';
 const isDev: boolean = !isProd;
 
 const filename = (ext: string): string => isDev ? `bundle.${ext}` : `bundle.[fullhash].${ext}`;
 
-export default {
+const jsLoaders = (): webpack.RuleSetUseItem[] => {
+    const loaders: webpack.RuleSetUseItem[] = [
+        {
+            loader: 'babel-loader',
+            options: {
+                presets: [
+                    '@babel/preset-env',
+                    '@babel/preset-typescript',
+                    {
+                        plugins: [
+                            '@babel/plugin-proposal-class-properties',
+                            '@babel/plugin-transform-runtime'
+                        ]
+                    }
+                ]
+            }
+        }
+    ];
+
+    if (isDev) {
+
+    }
+
+    return loaders;
+}
+
+const webpackConfig: webpack.Configuration = {
     context: resolve(__dirname, '../src'),
     mode: 'development',
     entry: './index.ts',
@@ -55,13 +82,7 @@ export default {
             {
                 test: /\.s[ac]ss$/i,
                 use: [
-                    {
-                        loader: MiniCssExtractPlugin.loader,
-                        options: {
-                            hmr: isDev,
-                            reloadAll: true
-                        }
-                    },
+                    MiniCssExtractPlugin.loader,
                     'css-loader',
                     'sass-loader'
                 ]
@@ -69,22 +90,10 @@ export default {
             {
                 test: /\.(ts|js)$/,
                 exclude: resolve(__dirname, '../node_modules'),
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: [
-                            '@babel/preset-env',
-                            '@babel/preset-typescript',
-                            {
-                                plugins: [
-                                    '@babel/plugin-proposal-class-properties',
-                                    '@babel/plugin-transform-runtime'
-                                ]
-                            }
-                        ]
-                    }
-                }
+                use: jsLoaders()
             }
         ]
     }
 }
+
+export default webpackConfig;

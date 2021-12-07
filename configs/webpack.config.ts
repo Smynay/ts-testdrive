@@ -24,6 +24,10 @@ export default {
             '@core': resolve(__dirname, '../src/core'),
         }
     },
+    devServer: {
+        port: 3000,
+        hot: isDev
+    },
     devtool: isDev ? 'source-map' : false,
     plugins: [
         new CleanWebpackPlugin(),

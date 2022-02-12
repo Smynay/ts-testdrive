@@ -23,7 +23,7 @@
       {
         "trailingComma": "es5",
         "endOfLine": "lf",
-        "singleQuote": false,
+        "singleQuote": true,
         "semi": true
       }
     ]

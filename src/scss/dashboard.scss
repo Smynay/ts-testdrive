@@ -1,0 +1,134 @@
+@import 'variables';
+@import 'mixins';
+
+.dashboard {
+  &__header {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: $dashboard-header-height;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    box-shadow: 0 2px 5px 2px rgba(60, 64, 67, 0.15);
+    z-index: 100;
+    cursor: default;
+
+    & span {
+      color: $brand-color-base;
+    }
+  }
+
+  &__new {
+    margin-top: $dashboard-header-height;
+    background: linear-gradient(
+        45deg,
+        rgba(0, 0, 0, 0) 48%,
+        rgba(0, 0, 0, 0.2) 50%,
+        rgba(0, 0, 0, 0) 52%
+      ),
+      linear-gradient(
+        -45deg,
+        rgba(0, 0, 0, 0) 48%,
+        rgba(0, 0, 0, 0.2) 50%,
+        rgba(0, 0, 0, 0) 52%
+      );
+    background-size: 1em 1em;
+    position: relative;
+  }
+
+  &__decore {
+    position: absolute;
+    z-index: 5;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    background: linear-gradient(
+      340deg,
+      rgba(0, 255, 0, 0.3) 0%,
+      rgba(0, 212, 255, 0) 60%
+    );
+  }
+
+  &__create {
+    width: 160px;
+    height: 160px;
+    background: #ffffff;
+    border-radius: 4px;
+    border: 1px solid $border-color-base;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    color: #000000;
+    text-decoration: none;
+    text-align: center;
+
+    &:hover {
+      cursor: pointer;
+      color: $brand-color-base;
+      border-color: $brand-color-base;
+    }
+  }
+
+  &__view {
+    max-width: 1000px;
+    margin: auto;
+    padding: 2rem 1rem;
+    z-index: 10;
+    position: relative;
+  }
+}
+
+.tables-list {
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    color: #202124;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 16px;
+    background: $border-color-base;
+    border-radius: 4px 4px 0 0;
+    cursor: default;
+  }
+
+  &__record {
+    list-style: none;
+    border: 1px solid $border-color-light;
+    border-top: 0;
+    cursor: pointer;
+
+    & .content {
+      text-decoration: none;
+      cursor: pointer;
+      color: #202124;
+      font-size: 14px;
+      padding: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      & p {
+        width: 70%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+    }
+
+    &:last-child {
+      border-radius: 0 0 4px 4px;
+    }
+
+    &:hover {
+      background: $border-color-light;
+
+      & p {
+        color: $brand-color-base;
+      }
+    }
+  }
+}

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+      name="viewport"
+    />
+    <meta content="ie=edge" http-equiv="X-UA-Compatible" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <title>Excel Web clone</title>
+  </head>
+  <body>
+    <div id="app" class="container">
+      <div class="excel">
+        <div class="header excel__header">
+          <input
+            type="text"
+            class="input header__input"
+            value="Новая таблица"
+            aria-label="Имя таблицы"
+          />
+
+          <div>
+            <div class="button header__button" role="button">
+              <i class="material-icons">delete</i>
+            </div>
+
+            <div class="button header__button" role="button">
+              <i class="material-icons">exit_to_app</i>
+            </div>
+          </div>
+        </div>
+
+        <div class="toolbar excel__toolbar">
+          <div class="button toolbar__button" role="button">
+            <i class="material-icons">format_align_left</i>
+          </div>
+
+          <div class="button toolbar__button" role="button">
+            <i class="material-icons">format_align_center</i>
+          </div>
+
+          <div class="button toolbar__button" role="button">
+            <i class="material-icons">format_align_right</i>
+          </div>
+
+          <div class="button toolbar__button" role="button">
+            <i class="material-icons">format_bold</i>
+          </div>
+
+          <div class="button toolbar__button" role="button">
+            <i class="material-icons">format_italic</i>
+          </div>
+
+          <div class="button toolbar__button" role="button">
+            <i class="material-icons">format_underlined</i>
+          </div>
+        </div>
+
+        <div class="formula excel__formula">
+          <div class="formula__info">fx</div>
+
+          <div
+            class="input formula__input"
+            role="textbox"
+            contenteditable
+            spellcheck="false"
+          ></div>
+        </div>
+
+        <div class="table excel__table">
+          <div class="row">
+            <div class="row__order-number"></div>
+
+            <div class="row__columns">
+              <div class="column">A</div>
+              <div class="column">B</div>
+              <div class="column">C</div>
+              <div class="column">D</div>
+              <div class="column">E</div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="row__order-number">1</div>
+
+            <div class="row__content">
+              <div class="cell selected" contenteditable>A1</div>
+              <div class="cell" contenteditable>B1</div>
+              <div class="cell" contenteditable>C1</div>
+              <div class="cell" contenteditable>D1</div>
+              <div class="cell" contenteditable>E1</div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="row__order-number">2</div>
+
+            <div class="row__content">
+              <div class="cell" contenteditable>A2</div>
+              <div class="cell" contenteditable>B2</div>
+              <div class="cell" contenteditable>C2</div>
+              <div class="cell" contenteditable>D2</div>
+              <div class="cell" contenteditable>E2</div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="row__order-number">3</div>
+
+            <div class="row__content">
+              <div class="cell" contenteditable>A3</div>
+              <div class="cell" contenteditable>B3</div>
+              <div class="cell" contenteditable>C3</div>
+              <div class="cell" contenteditable>D3</div>
+              <div class="cell" contenteditable>E3</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
